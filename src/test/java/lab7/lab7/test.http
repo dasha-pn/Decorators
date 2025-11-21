@@ -1,0 +1,67 @@
+GET http://localhost:8080/api/flower
+Accept: application/json
+
+### Create flower (local)
+POST http://localhost:8080/api/flower
+Content-Type: application/json
+Accept: application/json
+
+{
+  "sepalLength": 15.5,
+  "color": "RED",
+  "price": 120,
+  "type": "ROSE"
+}
+
+
+### Get all flowers again (local)
+GET http://localhost:8080/api/flower
+Accept: application/json
+
+### Get all users (local)
+GET http://localhost:8080/api/appuser
+Accept: application/json
+
+### Create user (local)
+POST http://localhost:8080/api/appuser
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test@example.com",
+  "dob": "2000-01-01"
+}
+
+### Get all users again (local)
+GET http://localhost:8080/api/appuser
+Accept: application/json
+
+### Get all flowers (Heroku)
+GET https://fierce-brook-93261-e3ae9087b235.herokuapp.com/api/flower
+Accept: application/json
+
+### Create flower (Heroku)
+POST https://fierce-brook-93261-e3ae9087b235.herokuapp.com/api/flower
+Content-Type: application/json
+Accept: application/json
+
+{
+  "sepalLength": 15.5,
+  "color": "RED",
+  "price": 120,
+  "type": "ROSE"
+}
+
+### Get all users (Heroku)
+GET https://fierce-brook-93261-e3ae9087b235.herokuapp.com/api/appuser
+Accept: application/json
+
+### Create user (Heroku)
+POST https://fierce-brook-93261-e3ae9087b235.herokuapp.com/api/appuser
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "heroku@example.com",
+  "dob": "2000-01-01"
+}
