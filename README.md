@@ -1,6 +1,6 @@
 # Decorators
 
-## 1. Authentication vs Authorization
+## Authentication vs Authorization
 
 ### Authentication (автентифікація) (“Who are you?”)
 
