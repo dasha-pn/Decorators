@@ -1,4 +1,4 @@
-# Decorators
+# Decorators (all implementation in a folder "decorator")
 
 ## Authentication vs Authorization
 
