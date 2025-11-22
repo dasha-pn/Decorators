@@ -1,11 +1,9 @@
 package lab7.lab7.decorator;
 
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.sql.*;
 
-@AllArgsConstructor
 public class CachedDocument implements Document {
 
     private static final String DB_URL = "jdbc:sqlite:cache.db";
@@ -13,8 +11,8 @@ public class CachedDocument implements Document {
     private final Document document;
     private final String cacheKey;
 
-    public CachedDocument(CountingDocument producer, String cacheKey) {
-        this.document = (Document) producer;
+    public CachedDocument(Document document, String cacheKey) {
+        this.document = document;
         this.cacheKey = cacheKey;
         initDb();
     }
@@ -63,16 +61,18 @@ public class CachedDocument implements Document {
     }
 
     @Override
-    @SneakyThrows
     public String parse() {
+        // 1. пробуємо взяти з кешу
         String cached = getFromCache();
         if (cached != null && !cached.isEmpty()) {
             System.out.println("Loaded text from cache for: " + cacheKey);
             return cached;
         }
 
+        // 2. якщо в кеші нема — звертаємось до "справжнього" документа
         String result = document.parse();
 
+        // 3. кладемо результат у кеш
         if (result != null && !result.isEmpty()) {
             saveToCache(result);
         }
